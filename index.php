@@ -11,6 +11,43 @@
 <body>
     <h2>Data Kelas XII</h2>
     <hr>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Nama</th>
+                <th>Tetala</th>
+                <th>Alamat</th>
+                <th>Kelas</th>
+                <th>JKL</th>
+                <th>Hobi</th>
+                <th>HP</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <?php
+            $no = 1;
+            include 'koneksi.php';
+            $sql = mysqli_query($conn, "SELECT * FROM tb_siswa");
+            while ($data = mysqli_fetch_assoc($sql)) {
+            ?>
+                <tr>
+                    <td><?= $no++; ?></td>
+                    <td><?= $data['nama']; ?></td>
+                    <td><?= $data['tetala']; ?></td>
+                    <td><?= $data['alamat']; ?></td>
+                    <td><?= $data['kelas']; ?></td>
+                    <td><?= $data['jenis_kelamin']; ?></td>
+                    <td><?= $data['hobi']; ?></td>
+                    <td><?= $data['no_hp']; ?></td>
+                </tr>
+            <?php
+            }
+            ?>
+            </tbo dy>
+
+    </table>
 </body>
 
 </html>
