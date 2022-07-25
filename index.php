@@ -23,6 +23,8 @@
                 <th>JKL</th>
                 <th>Hobi</th>
                 <th>HP</th>
+                <th>Aksi</th>
+
             </tr>
         </thead>
 
@@ -42,7 +44,10 @@
                     <td><?= $data['jkl']; ?></td>
                     <td><?= $data['hobi']; ?></td>
                     <td><?= $data['no_hp']; ?></td>
+                    <td><a href="<?= 'edit_admin.php?id=' . $row['id_admin'] ?>"><button class="btn btn-icon btn-primary"><i class="far fa-edit"></i> Edit</button></a>
 
+                        <a href="<?= 'hapus_admin.php?id_admin=' . $row['id_admin'] ?>" onclick="return confirm('Yakin Menghapus Data Ini?')"><button class="btn btn-icon btn-danger"><i class="fas fa-times"></i> Hapus</button></a>
+                    </td>
                 </tr>
             <?php } ?>
         </tbody>
@@ -82,5 +87,13 @@ if (isset($_POST['simpan'])) {
     $no_hp = $_POST['no_hp'];
 
     mysqli_query($conn, "INSERT INTO tb_siswa VALUES('','$nama','$tetala','$alamat','$kelas','$jkl','$hobi','$no_hp')");
+    if ($sql) {
+        echo "
+        <script>
+        alert('Data berhasil tersimpan');
+        window.location ='index.php';
+        </script>
+        ";
+    }
 }
 ?>
