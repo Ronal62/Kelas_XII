@@ -78,7 +78,7 @@
 
 <?php
 if (isset($_POST['simpan'])) {
-    $nama = $_POST['nama'];
+    $nama = htmlspecialchars(mysqli_real_escape_string($conn, $_POST['nama']));
     $tetala = $_POST['tetala'];
     $alamat = $_POST['alamat'];
     $kelas = $_POST['kelas'];
