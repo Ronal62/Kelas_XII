@@ -44,10 +44,7 @@
                     <td><?= $data['jkl']; ?></td>
                     <td><?= $data['hobi']; ?></td>
                     <td><?= $data['no_hp']; ?></td>
-                    <td><a href="<?= 'edit_admin.php?id=' . $row['id_admin'] ?>"><button class="btn btn-icon btn-primary"><i class="far fa-edit"></i> Edit</button></a>
-
-                        <a href="<?= 'hapus_admin.php?id_admin=' . $row['id_admin'] ?>" onclick="return confirm('Yakin Menghapus Data Ini?')"><button class="btn btn-icon btn-danger"><i class="fas fa-times"></i> Hapus</button></a>
-                    </td>
+                    <td> <a href="edit.php">Edit</a></td>
                 </tr>
             <?php } ?>
         </tbody>
