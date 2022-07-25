@@ -44,7 +44,7 @@
                     <td><?= $data['jkl']; ?></td>
                     <td><?= $data['hobi']; ?></td>
                     <td><?= $data['no_hp']; ?></td>
-                    <td> <a href="edit.php">Edit</a></td>
+                    <td> <a href="edit_siswa.php?id=<?= $data['id_siswa']; ?>">Edit</a></td>
                 </tr>
             <?php } ?>
         </tbody>

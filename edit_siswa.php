@@ -1,3 +1,9 @@
+<?php
+include 'koneksi.php';
+$id_siswa = $_GET['id'];
+$data = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM tb_siswa WHERE id_siswa = '$id_siswa' "));
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,51 +18,11 @@
     <h2>Data Kelas XII</h2>
     <hr>
 
-    <!-- <table border="1">
-        <thead>
-            <tr>
-                <th>No</th>
-                <th>Nama</th>
-                <th>Tetala</th>
-                <th>Alamat</th>
-                <th>Kelas</th>
-                <th>JKL</th>
-                <th>Hobi</th>
-                <th>HP</th>
-                <th>Aksi</th>
 
-            </tr>
-        </thead>
-
-        <tbody>
-            <?php
-            $no = 1;
-            include 'koneksi.php';
-            $sql = mysqli_query($conn, "SELECT * FROM tb_siswa");
-            while ($data = mysqli_fetch_assoc($sql)) {
-            ?>
-                <tr>
-                    <td><?= $no++; ?></td>
-                    <td><?= $data['nama']; ?></td>
-                    <td><?= $data['tetala']; ?></td>
-                    <td><?= $data['alamat']; ?></td>
-                    <td><?= $data['kelas']; ?></td>
-                    <td><?= $data['jkl']; ?></td>
-                    <td><?= $data['hobi']; ?></td>
-                    <td><?= $data['no_hp']; ?></td>
-                    <td><a href="<?= 'edit_admin.php?id=' . $row['id_admin'] ?>"><button class="btn btn-icon btn-primary"><i class="far fa-edit"></i> Edit</button></a>
-
-                        <a href="<?= 'hapus_admin.php?id_admin=' . $row['id_admin'] ?>" onclick="return confirm('Yakin Menghapus Data Ini?')"><button class="btn btn-icon btn-danger"><i class="fas fa-times"></i> Hapus</button></a>
-                    </td>
-                </tr>
-            <?php } ?>
-        </tbody>
-
-    </table> -->
     <h3>Form Edit Data</h3>
     <form action="" method="post" enctype="">
-        Nama : <input type="text" name="nama"> <br>
-        Tetala : <input type="text" name="tetala"> <br>
+        Nama : <input type="text" name="nama" value="<?= $data['nama']; ?>"> <br>
+        Tetala : <input type="text" name="tetala" value="<?= $data['tetala']; ?>"> <br>
         Alamat : <textarea name="alamat" cols="30" rows="5"></textarea> <br>
         Kelas : <select name="kelas" id=""><br>
             <option value="">-->Pilih Kelas<-- </option>
